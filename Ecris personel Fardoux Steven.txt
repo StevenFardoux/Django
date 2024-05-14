@@ -1,0 +1,10 @@
+Étant seul sur le projet, j'ai réalisé l'intégralité des fonctionnalités.
+
+Cet exercice, m'a permis : 
+	- d'apprendre les appelles d'API en python.
+	- de connaître l'instruction if not, ça paraît bête, mais je ne connaissais pas et c'est plus lisible, je trouve.
+	- d'apprendre qu'il était possible de mettre des options a un filter (__icontains par exemple).
+	- d'apprendre qu'il n'existe pas de moyen de mettre un datefield qui ne prend que l'année (en-tout-cas d'après mes recherches).
+	- de maîtrisé d'avantage les formulaires.
+	- de commencé à aimer les instructions en bloc pour l'HTML (j'étais un peu fâché contre ça).
+	- plus largement à maîtriser un peu Django.
