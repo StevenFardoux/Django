@@ -3,7 +3,7 @@
 Ce fichier contient les instructions pour le projet.
 
 ## Introduction
-Le projet consiste à développer une application web pour la gestion de films.
+Le projet consiste à développer une application web de recherche de films.
 
 ## Fonctionnalités
 - Recherche de films par titre dans la base de données
@@ -24,3 +24,6 @@ Le projet consiste à développer une application web pour la gestion de films.
 ## Contributeurs
 - Fardoux Steven
 
+
+## Contact 
+LinkedIn : https://www.linkedin.com/in/steven-fardoux-dev/
