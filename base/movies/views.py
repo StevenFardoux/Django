@@ -2,7 +2,7 @@ from typing import Any
 from django.http import HttpResponse
 from django.views.generic import TemplateView
 from .models import Movies
-from .forms import Movies_form
+from .forms import Movie_form
 import requests
 
 
@@ -16,23 +16,24 @@ class Form_moviesView(TemplateView):
 
     def get_context_data(self, **kwargs) -> dict[str, Any]:
         ctx = super().get_context_data(**kwargs)
-        ctx["form"] = Movies_form(self.request.GET or None)
+        ctx["form"] = Movie_form(self.request.GET or None)
         return ctx
     
 
 class Form_validate(TemplateView):
     template_name = "request.html"
     api_key = "8a4b62b2"
+
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         ctx = super().get_context_data(**kwargs)
-        ctx["form"] = Movies_form(self.request.GET or None) 
+        ctx["form"] = Movie_form(self.request.GET or None) 
         if ctx["form"].is_valid():
             ctx["title"] = ctx["form"].cleaned_data['title']  
-            template_name = "request.html"
-
-            ctx["movies"] = Movies.objects.filter(title=ctx["title"])
+            print(ctx["title"])
+            ctx["movies"] = Movies.objects.filter(title__icontains=ctx["title"])
+            
             if not ctx["movies"]:
-                # Appel API et sauvegarde dans la base de données
+                # Call API and save in DB
                 res = requests.get(f"http://www.omdbapi.com/?apikey={self.api_key}&t={ctx['title']}")
                 movie_data = res.json()
 
