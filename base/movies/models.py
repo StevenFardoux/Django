@@ -5,5 +5,6 @@ class Gender(models.Model):
 
 class Movies(models.Model): 
     title = models.CharField(max_length=100)
-    year = models.DateField()
-    gender = models.CharField(max_length=6)
+    year = models.IntegerField()
+    genre = models.CharField(max_length=15)
+

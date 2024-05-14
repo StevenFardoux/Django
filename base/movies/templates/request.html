@@ -1,6 +1,11 @@
-{% extends "base.html" %}
+{% extends "index.html" %}
 
 {% block content %}
-    {{ title }}
+{{ block.super }}
+    {% for movie in movies %}
+        {{ movie.title }} : 
+        <br>
+        {{ movie.year }} - {{ movie.genre }}
+    {% endfor %}
 {% endblock content %}
 
