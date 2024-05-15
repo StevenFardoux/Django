@@ -1,11 +1,26 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
-<form method="GET" action="{% url 'request' %}">
-    {{ form }}
 
-    <button type='submit'>Search</button>
-    
-</form>
+    <header>
+        {% block header %}
+        <div class="logo">
+            <a href="#"><img src="{% static 'img/djangygg.png' %}" alt=""></a>
+        </div>
+        <form method="GET" action="{% url 'request' %}">
+            {{ block.super }}
+            <div class="input">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                {{ form }}
+
+            </div>
+        
+            <button type='submit' hidden>Search</button>
+            
+        </form>
+        {% endblock header %}
+    </header>
+
 {% endblock content %}
 

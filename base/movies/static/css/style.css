@@ -1,0 +1,93 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #25272F;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 88px;
+}
+
+body header .logo {
+  width: 10%;
+  position: absolute;
+  text-align: left;
+  margin-left: 0;
+  left: 0;
+}
+
+body header .logo img {
+  width: 100%;
+}
+
+body header form {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  width: 60%;
+}
+
+body header form label {
+  display: none;
+}
+
+body header form .input {
+  margin-top: 18px;
+  color: #838d9c;
+  font-size: 13px;
+  width: 100%;
+  height: 40px;
+  border-radius: 25px;
+  background: #21242b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid #1b1e24;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  padding: 0 13px;
+}
+
+body header form .input input {
+  background-color: transparent;
+  color: white;
+  border: none;
+  top: 11px;
+  right: 15px;
+  outline: none;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+body header form .input input::-webkit-input-placeholder {
+  color: gray;
+}
+
+body header form .input input:-ms-input-placeholder {
+  color: gray;
+}
+
+body header form .input input::-ms-input-placeholder {
+  color: gray;
+}
+
+body header form .input input::placeholder {
+  color: gray;
+}
+
+body header form .input > div {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

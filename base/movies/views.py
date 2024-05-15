@@ -29,17 +29,24 @@ class Form_validate(TemplateView):
         ctx["form"] = Movie_form(self.request.GET or None) 
         if ctx["form"].is_valid():
             ctx["title"] = ctx["form"].cleaned_data['title']  
-            print(ctx["title"])
-            ctx["movies"] = Movies.objects.filter(title__icontains=ctx["title"])
+            print("leel", ctx["title"])
+            movies = Movies.objects.filter(title__icontains=ctx["title"])
             
-            if not ctx["movies"]:
+            if not movies:
                 # Call API and save in DB
-                res = requests.get(f"http://www.omdbapi.com/?apikey={self.api_key}&t={ctx['title']}")
-                movie_data = res.json()
+                resMovies = requests.get(f"https://www.omdbapi.com/?apikey={self.api_key}&s={ctx['title']}")
+                print(resMovies.content)
+                if resMovies.status_code == 200:
+                    movies_data = resMovies.json()
 
-                movie = Movies(title=movie_data['Title'], year=movie_data['Year'], genre=movie_data['Genre'])
-                movie.save()
-                ctx["movies"] = [movie]
+                    for movie_data in movies_data["Search"]:
+                        resGenre = requests.get(f"https://www.omdbapi.com/?apikey={self.api_key}&i={movie_data["imdbID"]}")
+                        if resGenre.status_code == 200:
+                            genres_date = resGenre.json()
+
+                            movie = Movies(title=movie_data['Title'], year=movie_data['Year'], genre=genres_date['Genre'])
+                            movie.save()
+            ctx["movies"] = Movies.objects.filter(title__icontains=ctx["title"])
             print(ctx["movies"])
         return ctx
 
